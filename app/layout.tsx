@@ -2,6 +2,7 @@ import AuthProvider from "@/components/providers/auth-provider";
 import "./globals.css";
 import type { Metadata } from "next";
 import { Inter } from "next/font/google";
+import { CheckSession } from "@/components/redirect";
 
 const inter = Inter({ subsets: ["latin"] });
 
@@ -18,7 +19,9 @@ export default function RootLayout({
   return (
     <html lang="en">
       <body className={inter.className}>
-        <AuthProvider>{children}</AuthProvider>
+        <AuthProvider>
+          <CheckSession>{children}</CheckSession>
+        </AuthProvider>
       </body>
     </html>
   );
