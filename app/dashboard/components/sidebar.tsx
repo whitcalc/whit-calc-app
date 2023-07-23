@@ -11,10 +11,10 @@ import {
 } from "lucide-react";
 
 const navigation = [
-  { name: "Dashboard", href: "#", icon: LayoutDashboard, current: true },
+  { name: "Dashboard", href: "#", icon: LayoutDashboard, current: false },
   {
     name: "Practice Tests",
-    href: "#",
+    href: "/dashboard/practice",
     icon: AtomIcon,
     current: false,
   },
