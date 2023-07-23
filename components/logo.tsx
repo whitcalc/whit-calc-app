@@ -4,7 +4,7 @@ import React from "react";
 function Logo() {
   return (
     <>
-      <Image alt="logo" height={100} width={196} src="/whitworth.svg" />
+      <Image alt="logo" height={100} width={156} src="/whitworth.svg" />
     </>
   );
 }
