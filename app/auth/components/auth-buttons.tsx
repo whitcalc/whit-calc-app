@@ -1,6 +1,6 @@
 "use client";
 import { Button } from "@/components/ui/button";
-import React from "react";
+import { signIn } from "next-auth/react";
 
 function AuthButtons() {
   return (
@@ -8,7 +8,7 @@ function AuthButtons() {
       <Button
         variant={"outline"}
         onClick={() => {
-          console.log("clicked");
+          signIn("github");
         }}
         className="w-full"
       >
