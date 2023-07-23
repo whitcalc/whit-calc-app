@@ -9,9 +9,15 @@ import {
   Settings2Icon,
   TrophyIcon,
 } from "lucide-react";
+import Link from "next/link";
 
 const navigation = [
-  { name: "Dashboard", href: "#", icon: LayoutDashboard, current: false },
+  {
+    name: "Dashboard",
+    href: "/dashboard",
+    icon: LayoutDashboard,
+    current: false,
+  },
   {
     name: "Practice Tests",
     href: "/dashboard/practice",
@@ -35,7 +41,7 @@ function Sidebar() {
               <ul role="list" className="-mx-2 space-y-1">
                 {navigation.map((item) => (
                   <li key={item.name}>
-                    <a
+                    <Link
                       href={item.href}
                       className={classNames(
                         item.current
@@ -54,7 +60,7 @@ function Sidebar() {
                         aria-hidden="true"
                       />
                       {item.name}
-                    </a>
+                    </Link>
                   </li>
                 ))}
               </ul>

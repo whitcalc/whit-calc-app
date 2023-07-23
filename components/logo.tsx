@@ -1,11 +1,18 @@
+"use client";
 import Image from "next/image";
 import React from "react";
 
 function Logo() {
   return (
-    <>
-      <Image alt="logo" height={100} width={156} src="/whitworth.svg" />
-    </>
+    <div className="p-5">
+      <Image
+        alt="logo"
+        height={66}
+        width={300}
+        src="/whitworth.svg"
+        priority={true}
+      />
+    </div>
   );
 }
 export default Logo;
