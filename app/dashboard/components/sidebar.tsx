@@ -3,7 +3,6 @@
 import Logo from "@/components/logo";
 import { classNames } from "@/lib/utils";
 import {
-  AtomIcon,
   CpuIcon,
   LayoutDashboard,
   Settings2Icon,
@@ -18,13 +17,7 @@ const navigation = [
     icon: LayoutDashboard,
     current: false,
   },
-  {
-    name: "Practice Tests",
-    href: "/dashboard/practice",
-    icon: AtomIcon,
-    current: false,
-  },
-  { name: "Exams", href: "#", icon: CpuIcon, current: false },
+  { name: "Readyness Check", href: "#", icon: CpuIcon, current: false },
   { name: "Results", href: "#", icon: TrophyIcon },
 ];
 
