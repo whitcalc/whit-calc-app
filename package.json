@@ -23,6 +23,7 @@
     "@types/node": "20.4.4",
     "@types/react": "18.2.15",
     "@types/react-dom": "18.2.7",
+    "@types/react-katex": "^3.0.0",
     "autoprefixer": "10.4.14",
     "class-variance-authority": "^0.7.0",
     "clsx": "^2.0.0",
@@ -35,6 +36,8 @@
     "react": "18.2.0",
     "react-dom": "18.2.0",
     "react-hook-form": "^7.45.2",
+    "react-katex": "^3.0.1",
+    "react-latex": "^2.0.0",
     "tailwind-merge": "^1.14.0",
     "tailwindcss": "3.3.3",
     "tailwindcss-animate": "^1.0.6",
@@ -42,6 +45,7 @@
     "zod": "^3.21.4"
   },
   "devDependencies": {
+    "@types/react-latex": "^2.0.0",
     "prisma": "^5.0.0"
   }
 }
