@@ -12,13 +12,11 @@ import Link from "next/link";
 
 const navigation = [
   {
-    name: "Dashboard",
+    name: "Readyness Check",
     href: "/dashboard",
     icon: LayoutDashboard,
-    current: false,
+    current: true,
   },
-  { name: "Readyness Check", href: "#", icon: CpuIcon, current: false },
-  { name: "Results", href: "#", icon: TrophyIcon },
 ];
 
 function Sidebar() {
