@@ -6,7 +6,7 @@ async function Math() {
   const questions = [
     {
       id: 1,
-      question: "1 + 1 = ?",
+      question: "f(x) = \frac{a}{x}",
       answers: [
         {
           id: 1,
