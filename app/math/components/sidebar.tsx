@@ -6,7 +6,7 @@ import { LayoutDashboard } from "lucide-react";
 import Link from "next/link";
 
 async function Sidebar() {
-  const navigation = await fetch("http://localhost:3000/api/math/")
+  const navigation = await fetch("https://whit-rt.vercel.app/api/math/")
     .then((res) => res.json())
     .then((data) => data.questions);
 

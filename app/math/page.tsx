@@ -3,7 +3,7 @@ import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import React from "react";
 
 async function Math() {
-  const questions = await fetch("http://localhost:3000/api/math")
+  const questions = await fetch("https://whit-rt.vercel.app/api/math")
     .then((res) => {
       return res.json();
     })
