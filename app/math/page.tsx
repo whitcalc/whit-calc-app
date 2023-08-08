@@ -3,13 +3,50 @@ import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import React from "react";
 
 async function Math() {
-  const questions = await fetch("https://whit-rt.vercel.app/api/math")
-    .then((res) => {
-      return res.json();
-    })
-    .then((data) => {
-      return data.questions;
-    });
+  const questions = [
+    {
+      id: 1,
+      question: "1 + 1 = ?",
+      answers: [
+        {
+          id: 1,
+          answer: "2",
+          isCorrect: true,
+        },
+        {
+          id: 2,
+          answer: "3",
+          isCorrect: false,
+        },
+        {
+          id: 3,
+          answer: "4",
+          isCorrect: false,
+        },
+      ],
+    },
+    {
+      id: 2,
+      question: "1^2+12/2",
+      answers: [
+        {
+          id: 1,
+          answer: "2",
+          isCorrect: false,
+        },
+        {
+          id: 2,
+          answer: "3",
+          isCorrect: false,
+        },
+        {
+          id: 3,
+          answer: "14/2",
+          isCorrect: true,
+        },
+      ],
+    },
+  ];
   console.log(questions);
 
   return (
