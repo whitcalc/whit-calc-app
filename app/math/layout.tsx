@@ -1,5 +1,7 @@
+import { Button } from "@/components/ui/button";
 import Sidebar from "./components/sidebar";
 import { UserNav } from "./components/user-nav";
+import { CheckIcon, TicketIcon } from "lucide-react";
 
 export default function DashboardLayout({
   children,
@@ -16,20 +18,57 @@ export default function DashboardLayout({
         <div className="lg:pl-72">
           <div className="sticky top-0 z-40 flex h-16 shrink-0 items-center gap-x-4 border-b border-gray-200 bg-white px-4 shadow-sm sm:gap-x-6 sm:px-6 lg:px-8">
             {/* Separator */}
+            <h2 className="flex-1 text-lg font-medium leading-6 text-gray-900">
+              Test is in progress
+            </h2>
             <div
               className="h-6 w-px bg-gray-200 lg:hidden"
               aria-hidden="true"
             />
-
             <div className="flex flex-1 gap-x-4 self-stretch lg:gap-x-6">
               <div className="flex-1"></div>
               <div className="flex items-center gap-x-4 lg:gap-x-6">
+                <div>
+                  <div className="grid grid-flow-col gap-5 text-center auto-cols-max">
+                    <div className="flex flex-col p-2 bg-neutral rounded-box text-neutral-content">
+                      <span className="countdown font-mono text-xl">
+                        <span style={{ "--value": 10 } as React.CSSProperties}>
+                          1
+                        </span>
+                      </span>
+                      hours
+                    </div>
+                    <div className="flex flex-col p-2 bg-neutral rounded-box text-neutral-content">
+                      <span className="countdown font-mono text-xl">
+                        <span style={{ "--value": 24 } as React.CSSProperties}>
+                          24
+                        </span>
+                      </span>
+                      min
+                    </div>
+                    <div className="flex flex-col p-2 bg-neutral rounded-box text-neutral-content">
+                      <span className="countdown font-mono text-xl">
+                        <span style={{ "--value": 33 } as React.CSSProperties}>
+                          33
+                        </span>
+                      </span>
+                      sec
+                    </div>
+                  </div>
+                </div>
                 {/* Separator */}
                 <div
                   className="hidden lg:block lg:h-6 lg:w-px lg:bg-gray-200"
                   aria-hidden="true"
-                />
-
+                ></div>
+                <Button variant={"destructive"}>
+                  <CheckIcon className="w-4 h-4 mr-2" /> Finish Test
+                </Button>
+                {/* Separator */}
+                <div
+                  className="hidden lg:block lg:h-6 lg:w-px lg:bg-gray-200"
+                  aria-hidden="true"
+                ></div>
                 {/* Profile dropdown */}
                 <UserNav />
               </div>

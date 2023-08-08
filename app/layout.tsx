@@ -1,5 +1,6 @@
-import AuthProvider from "@/components/providers/auth-provider";
 import "./globals.css";
+import "katex/dist/katex.min.css";
+import AuthProvider from "@/components/providers/auth-provider";
 import type { Metadata } from "next";
 import { Inter } from "next/font/google";
 import { CheckSession } from "@/components/redirect";

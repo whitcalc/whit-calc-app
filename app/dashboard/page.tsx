@@ -39,17 +39,17 @@ function DashboardPage() {
           <AlertDialogFooter>
             <div className="flex flex-col items-center gap-2 w-full">
               <Button asChild>
-                <Link href={"/dashboard/math"} className="w-full">
+                <Link href={"/math"} className="w-full">
                   Math Test
                 </Link>
               </Button>
               <Button asChild>
-                <Link href={"/dashboard/chem"} className="w-full">
+                <Link href={"/chem"} className="w-full">
                   Chemistry Test
                 </Link>
               </Button>
               <Button asChild>
-                <Link href={"/dashboard/both"} className="w-full">
+                <Link href={"/both"} className="w-full">
                   Both of the Tests
                 </Link>
               </Button>
