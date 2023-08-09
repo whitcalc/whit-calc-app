@@ -2,6 +2,9 @@ import React from "react";
 import Heading from "./components/heading";
 import Logo from "@/components/logo";
 import TestCard from "./components/test-card";
+import { Button } from "@/components/ui/button";
+import Link from "next/link";
+import { LogOutIcon } from "lucide-react";
 
 function DashboardPage() {
   return (
@@ -18,6 +21,13 @@ function DashboardPage() {
         <TestCard title="Math" link="/math"></TestCard>
         <TestCard title="Chem" link="/chem"></TestCard>
         <TestCard title="Both" link="/both"></TestCard>
+
+        <Button variant={"outline"} asChild>
+          <Link href="/api/auth/signout">
+            <LogOutIcon className="w-4 h-4 mr-2" />
+            Log out
+          </Link>
+        </Button>
       </div>
     </div>
   );
