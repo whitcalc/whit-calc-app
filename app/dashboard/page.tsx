@@ -1,64 +1,24 @@
 import React from "react";
 import Heading from "./components/heading";
-import {
-  AlertDialog,
-  AlertDialogAction,
-  AlertDialogCancel,
-  AlertDialogContent,
-  AlertDialogDescription,
-  AlertDialogFooter,
-  AlertDialogHeader,
-  AlertDialogTitle,
-  AlertDialogTrigger,
-} from "@/components/ui/alert-dialog";
-import { Button } from "@/components/ui/button";
-import { cn } from "@/lib/utils";
-import Link from "next/link";
+import Logo from "@/components/logo";
+import TestCard from "./components/test-card";
 
 function DashboardPage() {
   return (
-    <div className="flex flex-col gap-4">
-      <Heading>Readyness Check</Heading>
-      <p>
-        Hey ther! Please choose the option that best describes your current
-        situation.
-      </p>
-      <AlertDialog>
-        <AlertDialogTrigger asChild>
-          <Button>Choose Exam</Button>
-        </AlertDialogTrigger>
-        <AlertDialogContent>
-          <AlertDialogHeader>
-            <AlertDialogTitle>
-              Here are 3 Exam Types, which one is best suitable for you?
-            </AlertDialogTitle>
-            <AlertDialogDescription>
-              Please choose one of the options below.
-            </AlertDialogDescription>
-          </AlertDialogHeader>
-          <AlertDialogFooter>
-            <div className="flex flex-col items-center gap-2 w-full">
-              <Button asChild>
-                <Link href={"/math"} className="w-full">
-                  Math Test
-                </Link>
-              </Button>
-              <Button asChild>
-                <Link href={"/chem"} className="w-full">
-                  Chemistry Test
-                </Link>
-              </Button>
-              <Button asChild>
-                <Link href={"/both"} className="w-full">
-                  Both of the Tests
-                </Link>
-              </Button>
-              <hr />
-              <AlertDialogCancel>Close</AlertDialogCancel>
-            </div>
-          </AlertDialogFooter>
-        </AlertDialogContent>
-      </AlertDialog>
+    <div className="flex flex-col gap-6 text-center justify-center h-screen">
+      <Logo className="flex items-center flex-col" />
+      <div className="w-2/6 mx-auto">
+        <Heading>Readyness Check</Heading>
+        <p>
+          Hey ther! Please choose the option that best describes your current
+          situation.
+        </p>
+      </div>
+      <div className="flex gap-2 flex-col w-1/5 mx-auto">
+        <TestCard title="Math" link="/math"></TestCard>
+        <TestCard title="Chem" link="/chem"></TestCard>
+        <TestCard title="Both" link="/both"></TestCard>
+      </div>
     </div>
   );
 }

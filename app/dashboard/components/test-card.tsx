@@ -1,17 +1,11 @@
 import { Button } from "@/components/ui/button";
-import {
-  Card,
-  CardContent,
-  CardDescription,
-  CardFooter,
-  CardHeader,
-  CardTitle,
-} from "@/components/ui/card";
+import { Card, CardFooter, CardHeader, CardTitle } from "@/components/ui/card";
+import Link from "next/link";
 import React from "react";
 
 type TestCardProps = {
   title: string;
-  description: string;
+  link: string;
 };
 
 function TestCard(props: TestCardProps) {
@@ -20,11 +14,11 @@ function TestCard(props: TestCardProps) {
       <Card>
         <CardHeader>
           <CardTitle>{props.title}</CardTitle>
-          <CardDescription>{props.description}</CardDescription>
         </CardHeader>
-        <CardContent></CardContent>
         <CardFooter>
-          <Button>Start the test</Button>
+          <Button className="w-full" asChild>
+            <Link href={props.link}>Begin</Link>
+          </Button>
         </CardFooter>
       </Card>
     </>

@@ -1,6 +1,5 @@
 "use client";
 
-import Link from "next/link";
 import { zodResolver } from "@hookform/resolvers/zod";
 import * as z from "zod";
 
@@ -8,7 +7,6 @@ import { Button } from "@/components/ui/button";
 import {
   Form,
   FormControl,
-  FormDescription,
   FormField,
   FormItem,
   FormLabel,
@@ -19,11 +17,22 @@ import { useForm } from "react-hook-form";
 import { cn } from "@/lib/utils";
 
 const formSchema = z.object({
-  username: z.string().min(2, {
-    message: "Username must be at least 2 characters.",
+  firstname: z.string().min(2, {
+    message: "Firstname must be at least 2 characters.",
   }),
-  password: z.string().min(8, {
-    message: "Password must be at least 8 characters.",
+  lastname: z.string().min(2, {
+    message: "Lastname must be at least 8 characters.",
+  }),
+  email: z
+    .string()
+    .email({
+      message: "Please provide a valid email.",
+    })
+    .refine((val) => val.includes("@my.whitworth.edu" || "@whitworth.edu"), {
+      message: "Please provide a valid Whitworth University email.",
+    }),
+  passcode: z.string().min(6, {
+    message: "Passcode must be at least 6 characters.",
   }),
 });
 
@@ -32,8 +41,10 @@ export default function SigninPage() {
   const form = useForm<z.infer<typeof formSchema>>({
     resolver: zodResolver(formSchema),
     defaultValues: {
-      username: "",
-      password: "",
+      firstname: "",
+      lastname: "",
+      email: "",
+      passcode: "",
     },
   });
 
@@ -47,12 +58,12 @@ export default function SigninPage() {
       <form onSubmit={form.handleSubmit(onSubmit)} className="w-80 space-y-4">
         <FormField
           control={form.control}
-          name="username"
+          name="firstname"
           render={({ field }) => (
             <FormItem>
-              <FormLabel>Username</FormLabel>
+              <FormLabel>First name</FormLabel>
               <FormControl>
-                <Input placeholder="username" {...field} />
+                <Input placeholder="firstname" {...field} />
               </FormControl>
               {/* <FormDescription>Please Provide your username</FormDescription> */}
               <FormMessage />
@@ -61,12 +72,40 @@ export default function SigninPage() {
         />
         <FormField
           control={form.control}
-          name="password"
+          name="lastname"
           render={({ field }) => (
             <FormItem>
-              <FormLabel>Password</FormLabel>
+              <FormLabel>Last name</FormLabel>
               <FormControl>
-                <Input placeholder="password" type="password" {...field} />
+                <Input placeholder="Last name" type="text" {...field} />
+              </FormControl>
+              {/* <FormDescription>Please Provide your password</FormDescription> */}
+              <FormMessage />
+            </FormItem>
+          )}
+        />
+        <FormField
+          control={form.control}
+          name="email"
+          render={({ field }) => (
+            <FormItem>
+              <FormLabel>Email</FormLabel>
+              <FormControl>
+                <Input placeholder="Email" type="email" {...field} />
+              </FormControl>
+              {/* <FormDescription>Please Provide your password</FormDescription> */}
+              <FormMessage />
+            </FormItem>
+          )}
+        />
+        <FormField
+          control={form.control}
+          name="passcode"
+          render={({ field }) => (
+            <FormItem>
+              <FormLabel>Passcode</FormLabel>
+              <FormControl>
+                <Input placeholder="Passcode" type="password" {...field} />
               </FormControl>
               {/* <FormDescription>Please Provide your password</FormDescription> */}
               <FormMessage />
