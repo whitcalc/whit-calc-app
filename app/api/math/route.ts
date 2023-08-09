@@ -5,7 +5,7 @@ export const GET = () => {
     questions: [
       {
         id: 1,
-        question: "1 + 1 = ?",
+        question: "f(x)=\\frac{1}{x}",
         answers: [
           {
             id: 1,
