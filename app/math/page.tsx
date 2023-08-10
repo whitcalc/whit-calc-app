@@ -1,3 +1,6 @@
+export const revalidate = 0;
+  
+
 import { InlineMath, BlockMath } from "react-katex";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import React from "react";
