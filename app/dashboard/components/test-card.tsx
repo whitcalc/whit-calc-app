@@ -37,15 +37,15 @@ function TestCard(props: TestCardProps) {
                     Before you start, please make sure you have the following
                   </h2>
                   <ul>
-                    <li>- calculator</li>
-                    <li>- pen</li>
-                    <li>- few paper sheets</li>
+                    <li>- Calculator provided</li>
+                    <li>- Pen and pencil</li>
+                    <li>- Provided sheets of papers</li>
                   </ul>
                 </DialogDescription>
               </DialogHeader>
               <DialogFooter>
                 <Button className="w-full" asChild>
-                  <Link href={props.link}>Yes begin the test!</Link>
+                  <a href={props.link}>Yes begin the test!</a>
                 </Button>
               </DialogFooter>
             </DialogContent>

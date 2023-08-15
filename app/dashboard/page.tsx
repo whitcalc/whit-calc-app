@@ -18,9 +18,9 @@ function DashboardPage() {
         </p>
       </div>
       <div className="flex gap-2 flex-col w-1/5 mx-auto">
-        <TestCard title="Math" link="/math"></TestCard>
-        <TestCard title="Chem" link="/chem"></TestCard>
-        <TestCard title="Both" link="/both"></TestCard>
+        <TestCard title="Mathmatics" link="/math"></TestCard>
+        <TestCard title="Chemstry" link="/chem"></TestCard>
+        <TestCard title="Both of them" link="/both"></TestCard>
 
         <Button variant={"outline"} asChild>
           <Link href="/api/auth/signout">

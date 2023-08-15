@@ -103,7 +103,7 @@ export default function SigninPage() {
           name="passcode"
           render={({ field }) => (
             <FormItem>
-              <FormLabel>Passcode</FormLabel>
+              <FormLabel>Passcode (provided by proctor)</FormLabel>
               <FormControl>
                 <Input placeholder="Passcode" type="password" {...field} />
               </FormControl>
