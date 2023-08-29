@@ -1,24 +1,26 @@
 export const revalidate = 0;
-  
 
 import { InlineMath, BlockMath } from "react-katex";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import React from "react";
 
-async function Math() {
-  const questions = await fetch("https://whit-rt.vercel.app/api/math")
+async function Math({ params }: { params: { test_slug: string } }) {
+  const questions = await fetch(
+    "https://uwussimo.jprq.live/api/quizzes/" + params.test_slug + "/"
+  )
     .then((res) => {
       return res.json();
     })
     .then((data) => {
-      return data.questions;
+      return data;
     });
 
   return (
     <div>
-      <h1 className="text-2xl font-semibold mb-4">Math Readyness check</h1>
+      <h1 className="text-2xl font-semibold mb-4">{questions.title}</h1>
+
       <div className="flex gap-4 flex-col">
-        {questions.map((question: any) => {
+        {questions.questions.map((question: any) => {
           return (
             <div key={question.id} id={question.id}>
               <Card className="min-h-[70vh]">
@@ -27,7 +29,7 @@ async function Math() {
                     <span className="bg-primary text-primary-foreground w-10 h-10 flex items-center justify-center rounded-md">
                       {question.id}
                     </span>
-                    <InlineMath math={question.question} />
+                    <InlineMath math={question.text} />
                   </CardTitle>
                 </CardHeader>
                 <CardContent className="flex flex-col gap-2">
@@ -40,14 +42,14 @@ async function Math() {
                         <input
                           type="radio"
                           name={question.id}
-                          value={answer.answer}
+                          value={answer.text}
                           id={question.id + "-" + answer.id}
                         />
                         <label
                           htmlFor={question.id + "-" + answer.id}
                           className="w-full"
                         >
-                          <InlineMath math={answer.answer} />
+                          <InlineMath math={answer.text} />
                         </label>
                       </div>
                     );
