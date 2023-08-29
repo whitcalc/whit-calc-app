@@ -1,6 +1,6 @@
+"use client";
 import { Button } from "@/components/ui/button";
 import { Card, CardFooter, CardHeader, CardTitle } from "@/components/ui/card";
-import Link from "next/link";
 import React from "react";
 import {
   Dialog,
@@ -8,12 +8,13 @@ import {
   DialogDescription,
   DialogFooter,
   DialogHeader,
-  DialogTitle,
   DialogTrigger,
 } from "@/components/ui/dialog";
+import ReactMarkdown from "react-markdown";
 
 type TestCardProps = {
   title: string;
+  instructions: string;
   link: string;
 };
 
@@ -31,16 +32,10 @@ function TestCard(props: TestCardProps) {
             </DialogTrigger>
             <DialogContent>
               <DialogHeader>
-                <DialogTitle>Are you sure absolutely sure?</DialogTitle>
                 <DialogDescription>
-                  <h2 className="text-2xl text-foreground">
-                    Before you start, please make sure you have the following
-                  </h2>
-                  <ul>
-                    <li>- Calculator provided</li>
-                    <li>- Pen and pencil</li>
-                    <li>- Provided sheets of papers</li>
-                  </ul>
+                  <div className="markdown">
+                    <ReactMarkdown>{props.instructions}</ReactMarkdown>
+                  </div>
                 </DialogDescription>
               </DialogHeader>
               <DialogFooter>

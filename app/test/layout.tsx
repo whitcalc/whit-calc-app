@@ -1,7 +1,7 @@
 import { Button } from "@/components/ui/button";
 import Sidebar from "./components/sidebar";
 import { UserNav } from "./components/user-nav";
-import { CheckIcon, TicketIcon } from "lucide-react";
+import { CheckIcon } from "lucide-react";
 import Timer from "./components/timer";
 
 export default function DashboardLayout({
