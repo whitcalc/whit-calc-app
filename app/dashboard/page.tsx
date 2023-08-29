@@ -8,7 +8,22 @@ import Link from "next/link";
 import { LogOutIcon } from "lucide-react";
 import { Test } from "@/types/test";
 import "@/styles/markdown.css";
+import { signOut } from "next-auth/react";
 
+export const SignOutButton = () => {
+  return (
+    <Button
+      variant={"outline"}
+      onClick={() => {
+        signOut();
+      }}
+      className="w-full"
+    >
+      <LogOutIcon className="w-4 h-4 mr-2" />
+      Sign out
+    </Button>
+  );
+};
 export default function DashboardPage() {
   const [exams, setExams] = useState<Test[]>([]);
   const [loading, setLoading] = useState(true);
@@ -73,12 +88,7 @@ export default function DashboardPage() {
               instructions={test?.instructions || "Test description"}
             ></TestCard>
           ))}
-        <Button variant={"outline"} asChild>
-          <Link href="/api/auth/signout">
-            <LogOutIcon className="w-4 h-4 mr-2" />
-            Log out
-          </Link>
-        </Button>
+        <SignOutButton />
       </div>
     </div>
   );

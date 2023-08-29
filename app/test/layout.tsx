@@ -20,7 +20,7 @@ export default function DashboardLayout({
           <div className="sticky top-0 z-40 flex h-16 shrink-0 items-center gap-x-4 border-b border-gray-200 bg-white px-4 shadow-sm sm:gap-x-6 sm:px-6 lg:px-8">
             {/* Separator */}
             <h2 className="flex-1 text-lg font-medium leading-6 text-gray-900">
-              Test is in progress
+              Test is in progress - do not close or refresh the page!
             </h2>
             <div
               className="h-6 w-px bg-gray-200 lg:hidden"
@@ -29,7 +29,7 @@ export default function DashboardLayout({
             <div className="flex flex-1 gap-x-4 self-stretch lg:gap-x-6">
               <div className="flex-1"></div>
               <div className="flex items-center gap-x-4 lg:gap-x-6">
-                <Timer expiresAt={1693290855981} />
+                <Timer expiresAt={1693351587316} />
                 {/* Separator */}
                 <div
                   className="hidden lg:block lg:h-6 lg:w-px lg:bg-gray-200"
