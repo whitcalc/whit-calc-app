@@ -1,18 +1,32 @@
 /* eslint-disable @next/next/no-img-element */
-
+"use client";
 import Logo from "@/components/logo";
-import { classNames } from "@/lib/utils";
-import { LayoutDashboard } from "lucide-react";
 import Link from "next/link";
+import { useEffect, useState } from "react";
+import { classNames } from "@/lib/utils";
+import { usePathname, useRouter } from "next/navigation";
 
-async function Sidebar() {
-  const navigation = await fetch("https://whit-rt.vercel.app/api/math")
-    .then((res) => {
-      return res.json();
-    })
-    .then((data) => {
-      return data.questions;
-    });
+function Sidebar() {
+  const [loading, setLoading] = useState(true);
+  const [navigation, setNavigation] = useState([]) as any[];
+  const path = usePathname(); // /test/[test_slug]
+  useEffect(() => {
+    const slug = path.split("/")[2];
+    async function fetchquestions() {
+      const navigation = await fetch(
+        `https://uwussimo.jprq.live/api/quizzes/${slug}/`
+      )
+        .then((res) => {
+          return res.json();
+        })
+        .then((data) => {
+          setNavigation(data.questions);
+          setLoading(false);
+        });
+    }
+    fetchquestions();
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, []);
   return (
     <>
       <div className="flex grow flex-col gap-y-5 overflow-y-auto bg-white px-6 pb-4">
@@ -21,6 +35,7 @@ async function Sidebar() {
         </div>
         <nav className="flex flex-1 flex-col">
           <ul role="list" className="flex flex-1 flex-col gap-y-7">
+            {loading && <>loading...</>}
             <li>
               <ul role="list" className="-mx-2 space-y-1">
                 {navigation.map((item: any) => (
@@ -34,7 +49,7 @@ async function Sidebar() {
                         "group flex gap-x-3 rounded-md p-2 text-sm leading-6 font-semibold"
                       )}
                     >
-                      <LayoutDashboard
+                      {/* <HelpCircle
                         className={classNames(
                           item.current
                             ? "text-red-600"
@@ -42,7 +57,7 @@ async function Sidebar() {
                           "h-6 w-6 shrink-0"
                         )}
                         aria-hidden="true"
-                      />
+                      /> */}
                       {item.id} question
                     </Link>
                   </li>

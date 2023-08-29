@@ -63,19 +63,25 @@ function Timer({ expiresAt }: { expiresAt: number }) {
       <div className="grid grid-flow-col gap-5 text-center auto-cols-max">
         <div className="flex flex-col p-2 bg-neutral rounded-box text-neutral-content">
           <span className="countdown font-mono text-xl">
-            <span>{time.hours < 10 ? `0${time.hours}` : time.hours}</span>
+            <span>
+              {Math.abs(time.hours) < 10 ? `0${time.hours}` : time.hours}
+            </span>
           </span>
           hours
         </div>
         <div className="flex flex-col p-2 bg-neutral rounded-box text-neutral-content">
           <span className="countdown font-mono text-xl">
-            <span>{time.minutes < 10 ? `0${time.minutes}` : time.minutes}</span>
+            <span>
+              {Math.abs(time.minutes) < 10 ? `0${time.minutes}` : time.minutes}
+            </span>
           </span>
           min
         </div>
         <div className="flex flex-col p-2 bg-neutral rounded-box text-neutral-content">
           <span className="countdown font-mono text-xl">
-            <span>{time.seconds < 10 ? `0${time.seconds}` : time.seconds}</span>
+            <span>
+              {Math.abs(time.seconds) < 10 ? `0${time.seconds}` : time.seconds}
+            </span>
           </span>
           sec
         </div>

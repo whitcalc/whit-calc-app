@@ -3,6 +3,7 @@ export const revalidate = 0;
 import { InlineMath, BlockMath } from "react-katex";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import React from "react";
+import { Button } from "@/components/ui/button";
 
 async function Math({ params }: { params: { test_slug: string } }) {
   const questions = await fetch(
@@ -23,7 +24,7 @@ async function Math({ params }: { params: { test_slug: string } }) {
         {questions.questions.map((question: any) => {
           return (
             <div key={question.id} id={question.id}>
-              <Card className="min-h-[70vh]">
+              <Card className="min-h-[70vh] flex flex-col justify-center">
                 <CardHeader>
                   <CardTitle className="flex flex-row items-center gap-4">
                     <span className="bg-primary text-primary-foreground w-10 h-10 flex items-center justify-center rounded-md">
@@ -59,6 +60,7 @@ async function Math({ params }: { params: { test_slug: string } }) {
             </div>
           );
         })}
+        <Button>Submit</Button>
       </div>
     </div>
   );
