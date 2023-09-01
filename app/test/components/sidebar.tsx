@@ -14,7 +14,7 @@ function Sidebar() {
     const slug = path.split("/")[2];
     async function fetchquestions() {
       const navigation = await fetch(
-        `https://uwussimo.jprq.live/api/quizzes/${slug}/`
+        `https://whitworth.ainsoft.org/api/quizzes/${slug}/`
       )
         .then((res) => {
           return res.json();

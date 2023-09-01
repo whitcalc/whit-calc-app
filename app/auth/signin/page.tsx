@@ -21,16 +21,20 @@ const formSchema = z.object({
     message: "Firstname must be at least 2 characters.",
   }),
   lastname: z.string().min(2, {
-    message: "Lastname must be at least 8 characters.",
+    message: "Lastname must be at least 2 characters.",
   }),
   email: z
     .string()
     .email({
       message: "Please provide a valid email.",
     })
-    .refine((val) => val.includes("@my.whitworth.edu" || "@whitworth.edu"), {
-      message: "Please provide a valid Whitworth University email.",
-    }),
+    .refine(
+      (val) =>
+        val.includes("@my.whitworth.edu") || val.includes("@whitworth.edu"),
+      {
+        message: "Please provide a valid Whitworth University email.",
+      }
+    ),
   passcode: z.string().min(6, {
     message: "Passcode must be at least 6 characters.",
   }),
@@ -63,7 +67,7 @@ export default function SigninPage() {
             <FormItem>
               <FormLabel>First name</FormLabel>
               <FormControl>
-                <Input placeholder="firstname" {...field} />
+                <Input placeholder="First name" {...field} />
               </FormControl>
               {/* <FormDescription>Please Provide your username</FormDescription> */}
               <FormMessage />
@@ -89,7 +93,7 @@ export default function SigninPage() {
           name="email"
           render={({ field }) => (
             <FormItem>
-              <FormLabel>Email</FormLabel>
+              <FormLabel>Email (Whitworth Email)</FormLabel>
               <FormControl>
                 <Input placeholder="Email" type="email" {...field} />
               </FormControl>

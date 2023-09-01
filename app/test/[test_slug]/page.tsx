@@ -16,7 +16,7 @@ function Math({ params }: { params: { test_slug: string } }) {
   useEffect(() => {
     async function fetchquestions() {
       const res = await fetch(
-        `https://uwussimo.jprq.live/api/quizzes/${params.test_slug}/`
+        `https://whitworth.ainsoft.org/api/quizzes/${params.test_slug}/`
       )
         .then((res) => {
           return res.json();
@@ -123,7 +123,7 @@ function RenderQuestions(
 }
 
 function sendAnswers(answers: any, score: any, router: any) {
-  fetch("https://uwussimo.jprq.live/api/answers/", {
+  fetch("https://whitworth.ainsoft.org/api/answers/", {
     method: "POST",
     headers: {
       "Content-Type": "application/json",

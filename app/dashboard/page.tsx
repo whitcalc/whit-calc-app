@@ -30,9 +30,9 @@ export default function DashboardPage() {
   useEffect(() => {
     const getExams = async () => {
       try {
-        const res = await fetch("https://uwussimo.jprq.live/api/quizzes/").then(
-          (res) => res.json()
-        );
+        const res = await fetch(
+          "https://whitworth.ainsoft.org/api/quizzes/"
+        ).then((res) => res.json());
         setExams(res);
         setLoading(false);
         console.log(res);
