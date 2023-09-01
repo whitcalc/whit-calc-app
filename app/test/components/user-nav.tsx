@@ -17,6 +17,8 @@ import { signOut, useSession } from "next-auth/react";
 export function UserNav() {
   const { data: session } = useSession();
 
+  console.log(session?.user);
+
   const fallbackString = (string: string) => {
     return string.charAt(0).toUpperCase();
   };
@@ -30,7 +32,7 @@ export function UserNav() {
               alt={session?.user?.email!}
             />
             <AvatarFallback>
-              {fallbackString(session?.user?.name || "")}
+              {fallbackString(session?.user?.first_name || "")}
             </AvatarFallback>
           </Avatar>
         </Button>
@@ -39,18 +41,13 @@ export function UserNav() {
         <DropdownMenuLabel className="font-normal">
           <div className="flex flex-col space-y-1">
             <p className="text-sm font-medium leading-none">
-              {session?.user?.name}
+              {session?.user?.first_name}
             </p>
             <p className="text-xs leading-none text-muted-foreground">
-              {session?.user?.email}
+              {session?.user?.email?.slice(0, 15) + "..."}
             </p>
           </div>
         </DropdownMenuLabel>
-        <DropdownMenuSeparator />
-        <DropdownMenuGroup>
-          <DropdownMenuItem>Profile</DropdownMenuItem>
-          <DropdownMenuItem>Settings</DropdownMenuItem>
-        </DropdownMenuGroup>
         <DropdownMenuSeparator />
         <DropdownMenuItem
           onClick={() => {

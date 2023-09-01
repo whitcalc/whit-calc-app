@@ -15,6 +15,8 @@ import {
 import { Input } from "@/components/ui/input";
 import { useForm } from "react-hook-form";
 import { cn } from "@/lib/utils";
+import { toast } from "@/hooks/use-toast";
+import { signIn } from "next-auth/react";
 
 const formSchema = z.object({
   firstname: z.string().min(2, {
@@ -53,8 +55,35 @@ export default function SigninPage() {
   });
 
   // 2. Define a submit handler.
-  function onSubmit(values: z.infer<typeof formSchema>) {
-    console.log(values);
+  async function onSubmit(values: z.infer<typeof formSchema>) {
+    const res = await fetch("https://whitworth.ainsoft.org/api/quizpacks/")
+      .then((res) => {
+        return res.json();
+      })
+      .then((data) => {
+        return data[0].passcode;
+      });
+    if (values.passcode == res) {
+      toast({
+        title: "Let's get started!",
+      });
+      console.log({
+        firstname: values.firstname,
+        lastname: values.lastname,
+        email: values.email,
+      });
+
+      signIn("credentials", {
+        firstname: values.firstname,
+        lastname: values.lastname,
+        email: values.email,
+      });
+    } else {
+      toast({
+        title: "Passcode is incorrect",
+        description: "Make sure yuou are using proctor provided passcode",
+      });
+    }
   }
 
   return (

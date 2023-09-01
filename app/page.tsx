@@ -2,7 +2,7 @@
 
 import { useSession } from "next-auth/react";
 import { useEffect } from "react";
-import { useRouter } from "next/navigation";
+import { redirect, useRouter } from "next/navigation";
 import Logo from "@/components/logo";
 
 export default function Home() {
@@ -10,7 +10,7 @@ export default function Home() {
   const router = useRouter();
   useEffect(() => {
     if (session) {
-      router.push("/dashboard");
+      redirect("/dashboard");
     }
   }, [session, router]);
   return (

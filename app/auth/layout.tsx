@@ -20,9 +20,6 @@ function AuthLayout({ children }: { children: React.ReactNode }) {
           <CardTitle>Sign In</CardTitle>
         </CardHeader>
         <CardContent>{children}</CardContent>
-        <CardFooter>
-          <AuthButtons />
-        </CardFooter>
       </Card>
     </div>
   );
